@@ -5,15 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\GuiandoSupplier.Domain\GuiandoSupplier.Domain\GuiandoSupplier.Domain.csproj" />
+    <ProjectReference Include="..\..\GuiandoSupplier.Infrastructure\Data\GuiandoSupplier.Infra.Data\GuiandoSupplier.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>

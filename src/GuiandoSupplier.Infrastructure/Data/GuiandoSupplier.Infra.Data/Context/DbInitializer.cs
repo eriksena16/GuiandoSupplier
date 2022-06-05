@@ -14,17 +14,21 @@ namespace GuiandoSupplier.Infra.Data.Context
                 return;
             }
 
-            Supplier supplier = new Supplier
-            {
-                Nome = "Erik Sena Corp Ltda",
-                CNPJ = "16.041.995/0001-05",
-                LinkLogin = "https://www.linkedin.com/in/erik-sena-da-silva/",
-                LogoUrl = "/logo/eriksena.png",
-                Historico = true
-            };
+            Supplier supplier = GetSupplier();
 
             context.Supplier.Add(supplier);
             context.SaveChanges();
+        }
+
+        private static Supplier GetSupplier()
+        {
+            return new Supplier
+            {
+                Name = "Erik Sena Corp Ltda",
+                LinkLogin = "https://www.linkedin.com/in/erik-sena-da-silva/",
+                LogoUrl = "/logo/eriksena.png",
+                Historic = true
+            };
         }
     }
 }

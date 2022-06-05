@@ -19,6 +19,8 @@ namespace GuiandoSupplier.Infra.Data.Context
                     .Where(p => p.ClrType == typeof(string))))
                 property.SetColumnType("varchar(100)");
 
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(GuiandoContext).Assembly);
+
             foreach (var property in modelBuilder.Model.GetEntityTypes()
                 .SelectMany(e => e.GetProperties()
                     .Where(p => p.ClrType == typeof(decimal))))

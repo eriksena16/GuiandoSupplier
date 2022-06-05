@@ -10,7 +10,7 @@ namespace GuiandoSupplier.Domain.Interfaces.Repositories
     {
         Task Add(TEntity obj);
         Task<TEntity> Get(long id);
-        TEntity GetAsNoTrackingId(long id);
+        //TEntity GetAsNoTrackingId(long id);
         Task<List<TEntity>> Get();
         Task Update(TEntity obj);
         Task Delete(long id);

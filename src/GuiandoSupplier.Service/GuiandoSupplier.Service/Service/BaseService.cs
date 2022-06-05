@@ -38,12 +38,7 @@ namespace GuiandoSupplier.Service.Service
             return repository.Get(id);
         }
 
-        public TEntity GetAsnotrack(long id)
-        {
-            return repository.GetAsNoTrackingId(id);
-        }
-
-        public async Task<TEntity> Update(TEntity obj)
+     public async Task<TEntity> Update(TEntity obj)
         {
             await repository.Update(obj);
             return obj;
