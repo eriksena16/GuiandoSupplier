@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GuiandoSupplier.Domain.Entities
+﻿namespace GuiandoSupplier.Domain.Entities
 {
     public class Supplier : BaseEntity
     {
+        public string Nome { get; set; }
+        public string CNPJ { get; set; }
+        public string LinkLogin { get; set; }
+        public bool Historico { get; set; }
+        public string LogoUrl { get; set; }
     }
 }

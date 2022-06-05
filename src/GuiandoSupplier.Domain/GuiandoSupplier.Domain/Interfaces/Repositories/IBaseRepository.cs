@@ -16,6 +16,5 @@ namespace GuiandoSupplier.Domain.Interfaces.Repositories
         Task Delete(long id);
         Task<IEnumerable<TEntity>> Search(Expression<Func<TEntity, bool>> predicate);
        
-        Task<int> SaveChanges();
     }
 }

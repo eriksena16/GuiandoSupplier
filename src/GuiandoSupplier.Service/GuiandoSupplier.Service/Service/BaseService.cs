@@ -16,34 +16,34 @@ namespace GuiandoSupplier.Service.Service
             this.repository = repository;
         }
 
-        public virtual async Task<TEntity> Add(TEntity obj)
+        public async Task<TEntity> Add(TEntity obj)
         {
             await repository.Add(obj);
 
             return obj;
         }
 
-        public virtual async Task Delete(long id)
+        public async Task Delete(long id)
         {
             await repository.Delete(id);
         }
 
-        public virtual Task<List<TEntity>> Get()
+        public Task<List<TEntity>> Get()
         {
             return repository.Get();
         }
 
-        public virtual Task<TEntity> Get(long id)
+        public Task<TEntity> Get(long id)
         {
             return repository.Get(id);
         }
 
-        public virtual TEntity GetAsnotrack(long id)
+        public TEntity GetAsnotrack(long id)
         {
             return repository.GetAsNoTrackingId(id);
         }
 
-        public virtual async Task<TEntity> Update(TEntity obj)
+        public async Task<TEntity> Update(TEntity obj)
         {
             await repository.Update(obj);
             return obj;
