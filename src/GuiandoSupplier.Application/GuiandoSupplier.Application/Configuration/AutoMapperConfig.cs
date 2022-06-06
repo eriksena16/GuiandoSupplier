@@ -9,7 +9,8 @@ namespace GuiandoSupplier.Service.Configuration
         public AutoMapperConfig()
         {
 
-            CreateMap<Supplier, SupplierDTO>().ReverseMap();
+            CreateMap<SupplierDTO, Supplier>().ReverseMap()
+                .ForMember(dest => dest.VerticalsName, org => org.MapFrom(src => src.Verticals.ToString())); ;
             CreateMap<SupplierDTO, SupplierDTQ>().ReverseMap();
 
         }

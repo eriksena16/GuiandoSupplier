@@ -41,31 +41,6 @@ namespace GuiandoSupplier.Application.Controllers
 
         }
 
-        // GET: Suppliers/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            try
-            {
-                SupplierDTO supplier = await _supplierService.Get(id.Value);
-                if (supplier == null)
-                {
-                    return NotFound();
-                }
-
-                return View(supplier);
-            }
-            catch (Exception ex)
-            {
-
-                throw new ArgumentException($"{ex}, Ops! algo deu errado.");
-            }
-
-        }
 
         public IActionResult Create()
         {
@@ -111,7 +86,7 @@ namespace GuiandoSupplier.Application.Controllers
                 return NotFound();
             }
 
-            SupplierDTO supplier = await _supplierService.Get(id.Value);
+            var supplier = _mapper.Map<SupplierDTQ>(await _supplierService.Get(id.Value));
             if (supplier == null)
             {
                 return NotFound();
@@ -133,7 +108,14 @@ namespace GuiandoSupplier.Application.Controllers
             {
                 try
                 {
-                    await _supplierService.Update(_mapper.Map<SupplierDTO>(supplier));
+                    SupplierDTO supplierDTO = _mapper.Map<SupplierDTO>(supplier);
+
+                    if (supplier.FileLogo != null && supplier.FileLogo.Length > 0)
+                    {
+                        string folder = "uploads/logo/";
+                        supplierDTO.LogoUrl = await Upload(folder, supplier.FileLogo);
+                    }
+                    await _supplierService.Update(supplierDTO);
                 }
                 catch (DbUpdateConcurrencyException ex)
                 {

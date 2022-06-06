@@ -20,6 +20,9 @@
                 @Html.DisplayNameFor(model => model.Historic)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.VerticalsName)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.LogoUrl)
             </th>
             <th>Ações</th>
@@ -37,6 +40,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Historic)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VerticalsName)
                 </td>
                 <td>
                     <img src='@Html.DisplayFor(modelItem => item.LogoUrl)' style="max-width:100px; max-height:100px;" /> 

@@ -36,7 +36,10 @@ namespace GuiandoSupplier.Service.Service
 
         public async Task<SupplierDTO> Update(SupplierDTO supplierDTO)
         {
-            Supplier supplier = _mapper.Map<Supplier>(supplierDTO);
+            if (String.IsNullOrWhiteSpace(supplierDTO.LogoUrl))
+                supplierDTO.LogoUrl = _repository.Search(c => c.Id == supplierDTO.Id).Result.Select(c=> c.LogoUrl).FirstOrDefault();
+
+            Supplier supplier = _mapper.Map<SupplierDTO, Supplier> (supplierDTO);
 
             if (!Verification(supplier))
             {
